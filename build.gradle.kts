@@ -5,6 +5,18 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.7.10" apply false
 }
 
+
+buildscript {
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Dagger Hilt
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.42")
+    }
+}
 task<Delete>("clean") {
     delete = setOf(rootProject.buildDir)
 }
