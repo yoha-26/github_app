@@ -1,0 +1,29 @@
+[versions]
+android-gradle = "7.2.2"
+kotlin = "1.7.10"
+#room = "2.4.2"
+#compose = "1.2.0"
+
+# hilt
+hilt = "2.44"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle" }
+android-library = { id = "com.android.library", version.ref = "android-gradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+[libraries]
+#room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+#room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
+#room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+#room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+
+
+[bundles]
+#room = ["room-ktx", "room-paging", "room-runtime"]
