@@ -1,17 +1,19 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    id(libs.plugins.kotlin.kapt.get().pluginId)
+    alias(libs.plugins.hilt)
 }
 
+
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "jp.youmalink.githubapp"
-        minSdk = 23
-        targetSdk = 32
+        minSdk = 26
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -25,11 +27,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
@@ -44,11 +46,12 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.5.1")
     implementation("androidx.fragment:fragment-ktx:1.5.2")
 
+    versionCatalogs{
 
-    // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.42")
-    kapt("com.google.dagger:hilt-compiler:2.42")
-
+        // Dagger Hilt
+        implementation(libs.hilt.android)
+        kapt(libs.hilt.compiler)
+    }
     // AndroidX-Hilt
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
